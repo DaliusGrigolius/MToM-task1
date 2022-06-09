@@ -6,6 +6,7 @@ namespace DataAccess
     public class FilesDbContext : DbContext
     {
         public DbSet<File> Files { get; set; }
+        public DbSet<Folderis> Folders { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {
