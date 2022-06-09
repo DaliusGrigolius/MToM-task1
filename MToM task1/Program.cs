@@ -10,7 +10,11 @@ namespace MToM_task1
     {
         static void Main(string[] args)
         {
-            //string[] filePaths = Directory.GetFiles(@"C:\Users\Administrator\Desktop\Daleus\");
+            Console.WriteLine("Enter the path for scanning please: ");
+            var path = Console.ReadLine();
+
+            // Part 1 --------------------------------------------------
+            //string[] filePaths = Directory.GetFiles(@$"{path}");
 
             //FilesDbContext filesDbContext = new FilesDbContext();
 
@@ -28,10 +32,12 @@ namespace MToM_task1
             //}
 
             //filesDbContext.SaveChanges();
+            // Part 1 --------------------------------------------------
 
+            // Part 2 --------------------------------------------------
             FilesDbContext filesDbContext = new FilesDbContext();
 
-            string[] filePaths = Directory.GetFiles(@"C:\Users\Administrator\Desktop\Daleus\", "*", SearchOption.AllDirectories);
+            string[] filePaths = Directory.GetFiles(@$"{path}", "*", SearchOption.AllDirectories);
 
             for (int i = 0; i < filePaths.Length; i++)
             {
@@ -56,6 +62,10 @@ namespace MToM_task1
             }
 
             filesDbContext.SaveChanges();
+            // Part 2 --------------------------------------------------
+
+            Console.WriteLine("Success! Data saved to Database");
+            Console.ReadKey();
         }
     }
 }

@@ -27,13 +27,13 @@ namespace DataAccess.Migrations
                     table.PrimaryKey("PK_Folders", x => x.Id);
                 });
 
-            //----------------------------------------------------------------------------------
+            // Part 2 ----------------------------------------------------------------------------------------------------
             var path = @"C:\Users\Administrator\Desktop\Daleus\";
             var guid = Guid.NewGuid();
             migrationBuilder.Sql($"insert into Folders values('{guid}', '{Path.GetFileName(Path.GetDirectoryName(path))}')");
 
             migrationBuilder.Sql($"update Files set FolderId = '{guid}' where FolderId = '00000000-0000-0000-0000-000000000000'");
-            //----------------------------------------------------------------------------------
+            // Part 2 ----------------------------------------------------------------------------------------------------
             migrationBuilder.CreateIndex(
                 name: "IX_Files_FolderId",
                 table: "Files",
